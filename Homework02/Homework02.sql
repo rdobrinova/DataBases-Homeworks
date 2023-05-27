@@ -31,6 +31,23 @@ UNION
 SELECT LastName FROM Student
 
 --Create Foreign key constraints from diagram or with script
+ALTER TABLE AchievementType
+ADD PRIMARY KEY (Id)
+
+ALTER TABLE Course
+ADD PRIMARY KEY (Id)
+
+ALTER TABLE Grade
+ADD PRIMARY KEY (Id)
+
+ALTER TABLE GradeDetails
+ADD PRIMARY KEY (Id)
+
+ALTER TABLE Student
+ADD PRIMARY KEY (Id)
+
+ALTER TABLE Teacher
+ADD PRIMARY KEY (Id)
 
 ALTER TABLE Grade
 ADD CONSTRAINT FK_Grade_Student
@@ -53,5 +70,12 @@ ADD CONSTRAINT FK_GradeDetails_AchievementType
 Foreign Key(AchievementTypeId) references AchievementType(Id)
 
 
+--List all possible combinations of Courses names and AchievementType names that can be passed by student
+SELECT distinct c.[Name], a.[Name] FROM Course c
+CROSS JOIN AchievementType a
 
-
+--List all Teachers without exam Grade
+SELECT * FROM Teacher t
+LEFT JOIN Grade g
+ON t.Id = g.TeacherId
+WHERE g.Grade IS NULL

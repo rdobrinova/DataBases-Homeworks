@@ -1,8 +1,8 @@
-create database Homework01
-use Homework01
+create database Homeworks
+use Homeworks
 
---Tabele Students--
-create table Students
+--Tabele Student--
+create table Student
 (
 	Id int identity(1,1),
 	FirstName nvarchar(100) not null,
@@ -10,10 +10,10 @@ create table Students
 	DateOfBirth datetime2,
 	 EnrolledDate datetime2,
 	Gender nchar(1),
-	NationalIdNumber char(15),
+	NationalIDNumber char(15),
 	StudentCardNumber char(10),
 )
---Tabele Students--
+--Tabele Student--
 
 
 --Table Teacher--
@@ -28,8 +28,8 @@ create table Teacher
 )
 --Table Teacher--
 
---Table Grades--
-create table Grades
+--Table Grade--
+create table Grade
 (
 	Id int identity(1,1),
 	StudentId int not null,
@@ -40,10 +40,10 @@ create table Grades
 	CreatedDate datetime2
 	
 )
---Table Grades--
+--Table Grade--
 
---Table Courses--
-create table Courses
+--Table Course--
+create table Course
 (
 	Id int identity(1,1),
 	[Name] nvarchar(255) not null,
@@ -51,7 +51,7 @@ create table Courses
 	AcademicYear int,
 	Semester varchar(20)
 )
---Table Courses--
+--Table Course--
 
 --Table GradeDetails--
 create table GradeDetails
@@ -60,17 +60,17 @@ create table GradeDetails
 	GradeId int not null,
 	AchievementTypeId int not null,
 	AchievementPoints decimal(18,2),
-	AchievementMax decimal(18,2),
+	AchievementMaxPoints decimal(18,2),
 	AchievementDate datetime2
 )
 --Table GradeDetails--
 
---Table AchievementTypes--
-create table AchievementTypes
+--Table AchievementType--
+create table AchievementType
 (
 Id int identity(1,1),
 [Name] nvarchar(255) not null,
 [Description] nvarchar(MAX),
 ParticipationRate decimal(18,2)
 )
---Table AchievementTypes--
+--Table AchievementType--
